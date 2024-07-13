@@ -1,17 +1,20 @@
 <template>
   <div>
-    <NavbarComponent/>
+    <!-- <NavbarComponent/> -->
+    <LoginFormComponent/>
     
   </div>
 </template>
 
 <script>
-import NavbarComponent from '../components/NavbarComponent.vue';
+import LoginFormComponent from '@/components/LoginFormComponent.vue';
+
+// import NavbarComponent from '../components/NavbarComponent.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    NavbarComponent
-  }
+    LoginFormComponent
+}
 };
 </script>

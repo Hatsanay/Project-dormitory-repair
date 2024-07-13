@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import AdminHomeView from '../views/admin/AdminHomeView.vue';
 import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import ProtectedView from '../views/ProtectedView.vue';
 import RegisterView from '../views/RegisterView.vue'; // นำเข้า RegisterView
-
+import ResidentsHomeView from '../views/Residents/ResidentsHomeView.vue';
 const routes = [
   {
     path: '/',
@@ -16,16 +17,28 @@ const routes = [
     component: LoginView
   },
   {
+    path: '/register',
+    name: 'RegisterView',
+    component: RegisterView // กำหนดเส้นทางสำหรับ RegisterView
+  },
+  {
     path: '/protected',
     name: 'ProtectedView',
     component: ProtectedView,
     meta: { requiresAuth: true }
   },
   {
-    path: '/register',
-    name: 'RegisterView',
-    component: RegisterView // กำหนดเส้นทางสำหรับ RegisterView
-  }
+    path: '/adminhome',
+    name: 'AdminHomeView',
+    component: AdminHomeView,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/residentsHome',
+    name: 'ResidentsHomeView',
+    component: ResidentsHomeView,
+    meta: { requiresAuth: true }
+  },
 ];
 
 const router = createRouter({

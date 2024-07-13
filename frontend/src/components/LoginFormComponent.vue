@@ -6,14 +6,15 @@
         <h1>Sign In</h1>
         <div>
           <!-- <label for="username">Username</label> -->
-          <input type="text" v-model="username" required>
+          <input placeholder="username" type="text" v-model="username" required>
         </div>
         <div>
           <!-- <label for="password">Password</label> -->
-          <input type="password" v-model="password" required>
+          <input placeholder="password" type="password" v-model="password" required>
         </div>
         <button type="submit">Login</button>
       </form>
+      
     </div>
   </center>
 </div>
@@ -21,9 +22,10 @@
 
 <style>
   .container{
-    margin-top: 8%;
+    padding: auto;
+    margin-top:7%;
     background-color: white;
-    border: solid 1px black;
+    border: none;
     border-radius: 3px;
     width: 300px;
     height: 500px;
@@ -36,18 +38,24 @@
     background-position: center;
     font-family: 'SourceSansPro-Regular',sans-serif;
   }
+
+  h1{
+    margin-bottom: 30%;
+  }
 input{
-  margin: 2px;
-  height: 30px;
+  margin: 8px;
+  height: 40px;
   width: 200px;
+  border: none;
   border-radius: 4px;
-  box-shadow: 3px black;
+  box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
 }
 
 button{
-  margin-top: 4px;
+  cursor: pointer;
+  margin-top: 40px;
   height: 40px;
-  width: 150px;
+  width: 200px;
   background-color: orange;
   border: none;
   box-shadow: 3px black;
@@ -77,7 +85,7 @@ export default {
       .then(response => {
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] = response.data.token;
-        this.$router.push('/');
+        this.$router.push('/adminhome');
       })
       .catch(error => {
         console.error(error);

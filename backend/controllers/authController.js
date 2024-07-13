@@ -6,7 +6,7 @@ require('dotenv').config();
 const login = (req, res) => {
   const { username, password } = req.body;
 
-  const query = 'SELECT * FROM users WHERE user_Name = ?';
+  const query = 'SELECT * FROM tb_users WHERE user_Name = ?';
   db.query(query, [username], async (err, results) => {
     if (err) {
       console.error('Database query error:', err);
@@ -17,7 +17,7 @@ const login = (req, res) => {
     }
 
     const user = results[0];
-    const validPassword = await bcrypt.compare(password, user.user_PasswordHash);
+    const validPassword = await bcrypt.compare(password, user.user_Password);
     if (!validPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
@@ -39,7 +39,7 @@ const register = (req, res) => {
   const { username, password } = req.body;
 
   // ดึงเลขลำดับปัจจุบันจากตาราง users
-  const query = 'SELECT MAX(user_ID) AS maxId FROM users';
+  const query = 'SELECT MAX(user_ID) AS maxId FROM tb_users';
   db.query(query, [], (err, result) => {
     if (err) {
       console.error('ID sequence query error:', err);
@@ -56,7 +56,7 @@ const register = (req, res) => {
         return res.status(500).json({ error: 'Password hashing error' });
       }
 
-      const query = 'INSERT INTO users (user_ID, user_Name, user_PasswordHash) VALUES (?, ?, ?)';
+      const query = 'INSERT INTO tb_users (user_ID, user_Name, user_Password) VALUES (?, ?, ?)';
       db.query(query, [userID, username, hash], (err, results) => {
         if (err) {
           console.error('Database insertion error:', err);
