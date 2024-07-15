@@ -14,7 +14,7 @@
         </div>
         <button type="submit">Login</button>
       </form>
-      
+      <router-link to="/register" class="register-link">Sign up</router-link>
     </div>
   </center>
 </div>
@@ -31,7 +31,6 @@
     height: 500px;
   }
   body{
-    background-color: antiquewhite;
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment: fixed;
@@ -91,7 +90,8 @@ export default {
         console.error(error);
         alert('Login failed!');
       });
-    }
+    },
+    
   }
 };
 </script>
