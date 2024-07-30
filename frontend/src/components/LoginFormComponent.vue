@@ -24,7 +24,7 @@
   .container{
     padding: auto;
     margin-top:7%;
-    background-color: white;
+    background-color: rgb(242, 242, 242);
     border: none;
     border-radius: 3px;
     width: 300px;

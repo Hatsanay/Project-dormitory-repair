@@ -6,6 +6,9 @@
     <router-link to="/protected" class="menu-link">
       <font-awesome-icon class="icon" icon="question-circle" /> Protected
     </router-link>
+    <router-link to="/" class="menu-link">
+      <font-awesome-icon class="icon" icon="sign-out-alt" /> Logout
+    </router-link>
     <!--
     <router-link to="/adminusers" class="menu-link">
       <font-awesome-icon class="icon" icon="users" /> Users
@@ -16,9 +19,7 @@
     <router-link to="/adminhelp" class="menu-link">
       <font-awesome-icon class="icon" icon="question-circle" /> Help
     </router-link>
-    <router-link to="/adminlogout" class="menu-link">
-      <font-awesome-icon class="icon" icon="sign-out-alt" /> Logout
-    </router-link>
+   
     -->
   </div>
 </template>
