@@ -1,31 +1,42 @@
 <template>
   <div class="content">
-    <!-- <h1>Admin Home</h1> -->
-    <p>Welcome to the Admin Home Page.</p>
-    <p>Welcome to the Admin Home Page.</p>
-    <p>Welcome to the Admin Home Page.</p>
-    <p>Welcome to the Admin Home Page.</p>
+    <div class="container">
+      <h1>hatsanai</h1>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'AdminHomeComponent'
+  name: 'AdminHomeComponent',
+  components: {
+  }
 };
 </script>
 
-<style scoped>
+<style>
 .content {
-  margin-left: 250px;
   width: 100%;
-  background-color: #ffffff;
   height: 100vh;
+  background-color: #ffffff;
+  transition: margin-left 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  padding-left: 3%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  flex: 1;
 }
 
 @media only screen and (max-width: 600px) {
   .content {
-    margin-left: 100px;
-    width: 100%;
+    margin-left: 70px;
+    width: calc(100% - 70px);
     background-color: #ffffff;
     height: 100vh;
   }

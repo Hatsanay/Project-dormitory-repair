@@ -1,67 +1,96 @@
 <template>
-<div class="body">
-  <center>
-    <div class="container">
+  <div class="body">
+    <div class="containerlogin">
       <form @submit.prevent="login">
         <h1>Sign In</h1>
-        <div>
-          <!-- <label for="username">Username</label> -->
-          <input placeholder="username" type="text" v-model="username" required>
+        <div class="input-group">
+          <input placeholder="Username" type="text" v-model="username" required>
         </div>
-        <div>
-          <!-- <label for="password">Password</label> -->
-          <input placeholder="password" type="password" v-model="password" required>
+        <div class="input-group">
+          <input placeholder="Password" type="password" v-model="password" required>
         </div>
         <button type="submit">Login</button>
       </form>
       <router-link to="/register" class="register-link">Sign up</router-link>
     </div>
-  </center>
-</div>
+  </div>
 </template>
 
 <style>
-  .container{
-    padding: auto;
-    margin-top:7%;
-    background-color: rgb(242, 242, 242);
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .body {
+    background: linear-gradient(to right, #ffa500, #2575fc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .containerlogin {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 700;
+  }
+
+  .input-group {
+    margin-bottom: 15px;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+  }
+
+  button {
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+    background-color: #ffa500;
     border: none;
-    border-radius: 3px;
-    width: 300px;
-    height: 500px;
-  }
-  body{
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-attachment: fixed;
-    background-position: center;
-    font-family: 'SourceSansPro-Regular',sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
   }
 
-  h1{
-    margin-bottom: 30%;
+  button:hover {
+    background-color: #ffa500;
   }
-input{
-  margin: 8px;
-  height: 40px;
-  width: 200px;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0px 0px 2px 1px rgb(0 0 0 / 20%);
-}
 
-button{
-  cursor: pointer;
-  margin-top: 40px;
-  height: 40px;
-  width: 200px;
-  background-color: orange;
-  border: none;
-  box-shadow: 3px black;
-  border-radius: 20px;
-}
+  .register-link {
+    display: block;
+    margin-top: 20px;
+    color: #ffa500;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
 
-
+  .register-link:hover {
+    color: #1e60c7;
+  }
 </style>
 
 <script>
@@ -91,7 +120,6 @@ export default {
         alert('Login failed!');
       });
     },
-    
   }
 };
 </script>

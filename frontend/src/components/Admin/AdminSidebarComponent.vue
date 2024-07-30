@@ -1,32 +1,34 @@
 <template>
-  <div class="sidebar">
-    <router-link to="/adminhome" class="menu-link">
-      <font-awesome-icon class="icon" icon="home" /> Home
-    </router-link>
-    <router-link to="/protected" class="menu-link">
-      <font-awesome-icon class="icon" icon="question-circle" /> Protected
-    </router-link>
-    <router-link to="/" class="menu-link">
-      <font-awesome-icon class="icon" icon="sign-out-alt" /> Logout
-    </router-link>
-    <!--
-    <router-link to="/adminusers" class="menu-link">
-      <font-awesome-icon class="icon" icon="users" /> Users
-    </router-link>
-    <router-link to="/adminreports" class="menu-link">
-      <font-awesome-icon class="icon" icon="chart-line" /> Reports
-    </router-link>
-    <router-link to="/adminhelp" class="menu-link">
-      <font-awesome-icon class="icon" icon="question-circle" /> Help
-    </router-link>
-   
-    -->
+  <div :class="['sidebar', { 'sidebar-collapsed': isCollapsed }]">
+    <div class="menu">
+      <router-link to="/adminhome" class="menu-link" active-class="router-link-active">
+        <font-awesome-icon class="icon" icon="home" />
+        <span v-if="!isCollapsed">Dashboard</span>
+      </router-link>
+      <router-link to="/activity" class="menu-link" active-class="router-link-active">
+        <font-awesome-icon class="icon" icon="chart-line" />
+        <span v-if="!isCollapsed">Activity</span>
+      </router-link>
+      <router-link to="/settings" class="menu-link" active-class="router-link-active">
+        <font-awesome-icon class="icon" icon="cog" />
+        <span v-if="!isCollapsed">Settings</span>
+      </router-link>
+      <router-link to="/" class="menu-link" active-class="router-link-active">
+        <font-awesome-icon class="icon" icon="sign-out-alt" />
+        <span v-if="!isCollapsed">Log out</span>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AdminSidebarComponent'
+  props: {
+    isCollapsed: {
+      type: Boolean,
+      default: true
+    }
+  }
 };
 </script>
 
@@ -42,13 +44,22 @@ export default {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  transition: width 0.3s;
+}
+
+.sidebar-collapsed {
+  width: 60px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-link {
   color: rgb(96, 96, 96);
   margin-bottom: 10px;
-  padding:  8px;
-  padding-right: 1%;
+  padding: 8px;
   border-radius: 5px;
   text-decoration: none;
   display: flex;
@@ -65,48 +76,37 @@ export default {
   background-color: #ffa500; 
   color: #ffffff; 
   font-weight: bold;
-  display: flex;
   border-radius: 5px;
-  width: 100%;
+  width: calc(100% - 16px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .icon {
   margin-right: 10px;
 }
 
+.sidebar .menu-link span {
+  display: none;
+}
+
+.sidebar:not(.sidebar-collapsed) .menu-link span {
+  display: inline;
+}
+
+.sidebar .menu-link {
+  justify-content: center;
+}
+
+.sidebar:not(.sidebar-collapsed) .menu-link {
+  justify-content: flex-start;
+}
+
 @media only screen and (max-width: 600px) {
   .sidebar {
     width: 60px;
-    padding: 10px;
-
   }
-
-  .menu-link {
-    color: transparent;
-    justify-content: center;
-  }
-
-  .menu-link:hover {
-    color: transparent;
-  }
-
-  .icon {
-    color: #000000;
-    margin-left: 35px;
-    visibility: visible;
-  }
-  .sidebar a {
-    visibility: hidden;
-  }
-
-  .menu-link.router-link-active .icon{
-    visibility: directives;
-    background-color: #ffa500;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 0;
-    width: 80%;
-    color: #ffffff;
+  .sidebar:not(.sidebar-collapsed) {
+    width: 160px; 
   }
 }
 </style>

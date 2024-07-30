@@ -4,10 +4,10 @@ import App from './App.vue';
 import router from './router';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faCog, faUsers, faChartLine, faQuestionCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faChevronLeft, faChevronRight, faCog, faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faHome, faCog, faUsers, faChartLine, faQuestionCircle, faSignOutAlt);
+library.add(faChevronLeft, faChevronRight, faHome, faChartLine, faCog, faSignOutAlt);
 
 
 axios.defaults.baseURL = 'http://localhost:3000';
