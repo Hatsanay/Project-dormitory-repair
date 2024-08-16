@@ -4,6 +4,7 @@
     <div class="content-wrapper">
       <NavbarComponent @toggleSidebar="toggleSidebar" :isSidebarCollapsed="isSidebarCollapsed" />
       <AdminHomeComponent />
+      <FooterComponent />
     </div>
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import AdminSidebarComponent from '../../components/Admin/AdminSidebarComponent.vue';
 import AdminHomeComponent from '../../components/Admin/home/AdminHomeComponent.vue';
+import FooterComponent from '../../components/FooterComponent.vue';
 import NavbarComponent from '../../components/NavbarComponent.vue';
 
 export default {
@@ -19,6 +21,7 @@ export default {
     AdminHomeComponent,
     AdminSidebarComponent,
     NavbarComponent,
+    FooterComponent,
   },
   data() {
     return {
@@ -36,7 +39,27 @@ export default {
 <style scoped>
 .main-container {
   display: flex;
+  flex-direction: row;
+  max-height: 100vh;
   transition: margin-left 0.3s;
+}
+
+.content-wrapper {
+    
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: margin-left 0.3s;
+  padding-top: 0; /* เพิ่มเพื่อชิดด้านบน */
+  margin-top: 0; /* เพิ่มเพื่อชิดด้านบน */
+}
+
+.sidebar {
+  flex: 0 0 25%;
+  max-width: 40%;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .sidebar-expanded .content-wrapper {
@@ -45,17 +68,18 @@ export default {
 
 .content-wrapper {
   width: 100%;
-  margin-left: 60px;
-  transition: margin-left 0.3s;
+  margin-left: 30px;
 }
 
 @media only screen and (max-width: 600px) {
   .sidebar-expanded .content-wrapper {
-    margin-left: 160px; 
+    margin-left: 250px;
   }
 
   .content-wrapper {
-    margin-left: 60px;
+    margin-left: 40px; 
   }
 }
+
+
 </style>

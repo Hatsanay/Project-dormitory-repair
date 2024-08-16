@@ -5,14 +5,14 @@
         <font-awesome-icon class="icon" icon="home" />
         <span v-if="!isCollapsed">Dashboard</span>
       </router-link>
-      <router-link to="/activity" class="menu-link" active-class="router-link-active">
+      <!-- <router-link to="/activity" class="menu-link" active-class="router-link-active">
         <font-awesome-icon class="icon" icon="chart-line" />
         <span v-if="!isCollapsed">Activity</span>
       </router-link>
       <router-link to="/settings" class="menu-link" active-class="router-link-active">
         <font-awesome-icon class="icon" icon="cog" />
         <span v-if="!isCollapsed">Settings</span>
-      </router-link>
+      </router-link> -->
       <router-link to="/" class="menu-link" active-class="router-link-active">
         <font-awesome-icon class="icon" icon="sign-out-alt" />
         <span v-if="!isCollapsed">Log out</span>
@@ -33,10 +33,11 @@ export default {
 </script>
 
 <style scoped>
+
 .sidebar {
   box-shadow: 1px 1px 10px 2px #888888;
   height: 100vh;
-  width: 200px;
+  width: 220px;
   position: fixed;
   top: 0;
   left: 0;
@@ -101,12 +102,16 @@ export default {
   justify-content: flex-start;
 }
 
+
+
 @media only screen and (max-width: 600px) {
   .sidebar {
     width: 60px;
+    height:100%;
   }
   .sidebar:not(.sidebar-collapsed) {
-    width: 160px; 
+    width: 100%;
+    height:100%;
   }
 }
 </style>

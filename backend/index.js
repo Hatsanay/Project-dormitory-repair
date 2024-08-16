@@ -6,7 +6,7 @@ const authenticateToken = require('./middleware/auth');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 app.use(cors()); // เพิ่มการใช้ cors middleware
 app.use(bodyParser.json());

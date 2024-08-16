@@ -22,7 +22,7 @@ const login = (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const token = jwt.sign({ id: user.user_ID, username: user.user_Name }, process.env.JWT_SECRET, { expiresIn: '5m' }); // สร้าง JWT token
+    const token = jwt.sign({ id: user.user_ID, username: user.user_Name }, process.env.JWT_SECRET, { expiresIn: '30m' }); // สร้าง JWT token
 
     res.status(200).json({
       message: "welcome",
